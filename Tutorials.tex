@@ -384,7 +384,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Filip Sajko, Autor 2]
+\begin{zad}[Filip Sajko, Natalia Szymańska]
     Na ile sposobów można ustawić $k$ wież na szachownicy $n \times m$
     tak, by żadne dwie nie znajdowały się w polu wzajemnego rażenia.
 \end{zad}
@@ -398,7 +398,17 @@ linewidth=1pt}
     (wykonujemy mnożenie $k + k$ elementów -- stąd to $-k + 1$).
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    Niech $n$ to ilość wierszy, $m$ - ilość kolumn,
+\begin{math}
+    k \leq m, n
+\end{math}
+to ilość wież na szachownicy. Żeby ułożyć $k$ szachownic na planszy tak, aby żadne dwie nie znajdowały się w polu wzajemnego rażenia, to każda wieża musi być w osobnym wierszu i kolumnie, czyli:
+\begin{itemize}
+    \item Najpierw wybieramy $k$ wierszy: można to zrobić na ${n}\choose{k}$ sposobów,
+    \item Wybieramy $k$ kolumn na ${m}\choose{k}$ sposobów,
+    \item Wieże na wybranych polach możemy ustawić na $k!$ sposobów.
+\end{itemize}
+Razem otrzymujemy: ${{n}\choose{k}}\cdot{{m}\choose{k}}\cdot{k!}$
 \end{mdframed}
 
 
@@ -436,7 +446,7 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Natalia Szymańska, Autor 2]
     Ile rozwiązań ma równanie $x_1 + x_2+x_3+x_4 = 7$:
     \begin{enumerate}
         \item gdzie $x_i$ są liczbami naturalnymi?
@@ -445,8 +455,11 @@ linewidth=1pt}
 \end{zad}
 \begin{mdframed}
     \begin{enumerate}
-        \item Rozwiązanie Autora 1 podpunktu 1
-        \item Rozwiązanie Autora 1 podpunktu 2
+       \[x_{1}+x_{2}+x{3}+x_{4}=7\]
+(i) $x_{i}$ - liczby naturalne
+Niech $x_{i}$ to będą dzieci, $7$ - liczba cukierków. Musimy rozdać cukierki na 4 części, czyli zbiór cukierków dzielimy trzykrotnie - cukierki i podziały są rozróżnialne, więc ilość możliwych rozdań cukierów wynosi \[\frac{(7+3)!}{7!\cdot3!} = {{10}\choose{7}} = 120\]
+(ii) $x_{i}$ - liczby naturalne dodatnie
+Tak samo, jak w poprzednim przykładzie, ale teraz każde dziecko ma gwarantowany 1 cukierek, więc $x_{1}+x_{2}+x{3}+x_{4}=7$ można zapisać jako $x_{1}+x_{2}+x{3}+x_{4}=3$. Mamy 3 cukierki do rozdania dla 4 dzieci, czyli 3 razy dzielimy zbiór cukierków, co nam daje \[\frac{(3+3)!}{3!\cdot3!} = {{6}\choose{3}} = 20\]
     \end{enumerate}
 \end{mdframed}
 \begin{mdframed}
@@ -459,13 +472,14 @@ linewidth=1pt}
 
 
 
-\begin{zad}[Autor 1, Autor 2]
+\begin{zad}[Natalia Szymańska, Autor 2]
     Rozważmy czekoladę złożoną z $m\times n$ kostek.
     Na ile sposobów można wykroić prostokąt złożony z $k \times k$
     sąsiadujących ze sobą kostek czekolady?
 \end{zad}
 \begin{mdframed}
-    Rozwiązanie Autora 1.
+    Niech $m$ - wiersze, $n$ - kolumny, oczywiście $k \leq m, n$. Kwadrat $k \times k$k można ustawić: po wierszach na $m-k+1$ sposobów, po kolumnach $n-k+1$, więc ilość sposobów wykrojenia takiego kwadratu wynosi \[(m-k+1)(n-k+1)\]
+
 \end{mdframed}
 \begin{mdframed}
     Rozwiązanie Autora 2.
@@ -2133,17 +2147,41 @@ Ponoć Profesor coś zakręcił i nie ma tego zestawu.
     Rozwiązanie Autora 2.
 \end{mdframed}
 
-\begin{zad}[Konstanty Sobczyński, Autor 2]
+\begin{zad}[Konstanty Sobczyński, Natalia Szymańska]
     Polecenie
 \end{zad}
 \begin{mdframed}
     Rozwiązanie Autora 1.
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    (i) Niech $a(x) = \sum_{n=0}^{\infty} a_n x^n$. Wtedy możemy rozpisać to jako: \newline
+\[a(x) = a_0 + a_1 x + \sum_{n=2}^{\infty}a_n x^n =\]
+\[=a_0 + a_1 x + \sum_{n=2}^{\infty}(3a_{n-2} - 2a_{n-1})=\]
+\[=a_0 + a_1 x + 3\sum_{n=2}^{\infty}{a_{n-2}x^n} - 2\sum_{n=2}^{\infty}{a_{n-1}x^n}=\]
+\[= a_0 + a_1 x +3x^2\sum_{n=2}^{\infty}{a_{n-2}x^{n-2}} - 2x\sum_{n=2}^{\infty}{a_{n-1}x^{n-1}} = \]
+\[= 2 + 3x + 3x^2a(x) - 2x(a_0 + \sum_{n=2}^{\infty}{a_{n-1}x^{n-1}} - a_0) =\]
+\[=2 + 3x + 3x^2a(x) -2x(a(x) -2)\]
+Z tego możemy wyznaczyć a(x):
+\[a(x) = 2 + 3x + 3x^2a(x) -2xa(x) +4x\]
+\[a(x) = \frac{2+7x}{1+2x+3x^2} = \frac{-\frac{9}{4}}{1-x} + \frac{\frac{1}{4}}{1+3x}=\]
+\[=-\frac{9}{4}\sum_{n=0}^{\infty}x^n +\frac{1}{4}\sum_{n=2}^{\infty}(-3)^n+x^n\]
+Z tego można wyznaczyć wzór na $a_n= -\frac{9}{4}+ \frac{1}{4}(-3)^n$
+\newline
+Podpunkty (ii) oraz (iii) rozwiązuje się analogicznie:\newline
+(ii)  \[a(x) = \sum_{n=0}^{\infty} a_n x^n = ... = x + 4xa(x) -4x^2a(x)\]
+\[a(x) = \frac{x}{1-4x+4x^2} = -\frac{\frac{1}{2}}{1-2x}+\frac{\frac{1}{2}}{(1-2x)^2} =\]
+\[=-\frac{1}{2}\sum_{n=0}^{\infty}2^nx^n + \frac{1}{2}\sum_{n=0}^{\infty}{{n+1}\choose{n}}2^nx^n= \]
+\[=-\sum_{n=0}^{\infty}2^{n-1}x^n + \sum_{n=0}^{\infty}({n+1})2^{n-1}x^n=\]
+\[a_n=-2^{n-1}+(n+1)2^{n-1} = 2^{n-1}n\]
+\newline
+
+(iii)
+\[a(x) = \sum_{n=0}^{\infty} a_n x^n = ... = 1+2xa(x) + \frac{3x}{1-x}\]
+\[a(x) = \frac{2x+1}{(1-2x)(1-x)} = \frac{4}{1-2x} - \frac{3}{1-x} = \sum_{n=0}^{\infty}2^{n+2}x^n - \sum_{n=0}^{\infty}3x^n\]
+\[a_n = 2^{n+2} -3\]
 \end{mdframed}
 
-\begin{zad}[Konstanty Sobczyński (i-iii), Julian Sowiński (iv-vi), Maciej Wełpa (vii-ix), Autor 2: Mateusz Rabantek(iv-vi), Mateusz Rabantek(vii-ix)]
+\begin{zad}[Konstanty Sobczyński (i-iii), Julian Sowiński (iv-vi), Maciej Wełpa (vii-ix), Autor 2: Natalia Szymańska (i-iii), Mateusz Rabantek(iv-vi), Mateusz Rabantek(vii-ix)]
     Rozwiąż równania rekurencyjne:
     \begin{enumerate}
         \item $a_0=4, a_1=4, a_{n+2}=a_{n+1}+6a_n$,
@@ -2388,6 +2426,27 @@ Ponoć Profesor coś zakręcił i nie ma tego zestawu.
     $$ a_n = 2^{n-1} + 2^{2n-1} $$
 \end{mdframed}
 \begin{mdframed}
+    %rozwiazanie: Natalia Szymańska
+    \textbf{Rozwiązanie podpunktu (i)}
+    Zapiszmy sobie wzór na $a_{n+2}$ jako $a_{n+2} - a_{n+1} -6a_n=0$. Niech $A(x) = \sum_{n=0}^{\infty}a_nx^n$, a $P(X) = 1-x-6x^2$. Wtedy:
+\[A(x)P(x) = (a_0 + a_1 x + a_2 x^2 + ...)(1-x-6x^2) \]
+\[= a_0 +(a_1-a_0)x + (a_2-a_1-6a_0)x^2 + (a_3-a_2-6a_1)x^3 + ...\]
+Zauważmy, że współczynniki przy $x^2$ i w górę się zerują, więc wyrażenie ma postać:
+\[A(x)P(x) = 4+0x+0x^2 = 4\]
+Więc:
+\[A(x) = \frac{4}{1-x-6x^2} = \frac{4}{(1-3x)(1+2x)} = \frac{\frac{12}{5}}{1-3x} + \frac{\frac{8}{5}}{1+2x} = \frac{12}{5}\sum_{n=0}^{\infty}3^nx^n + \frac{8}{5}\sum_{n=0}^{\infty}(-2)^nx^n\]
+Czyli $a_n=\frac{12}{5}\cdot3^n+\frac{8}{5}\cdot(-2)^n$\newline
+\textbf{Rozwiązanie podpunktu (ii)}
+Wzór na $a_{n+2}$ zapiszemy jako $a_{n+2} - 2a_{n+1} +a_n=0$. Niech $A(x) = \sum_{n=0}^{\infty}a_nx^n$, a $P(X) = 1-2x+x^2$. Analogicznie do podpunktu (i) mamy:
+\[A(x)P(x) = a_0 + (a_1 -2a_0)x+(a_2-2a_1+a_0)x^2 + ... = 2-2x\]
+\[A(x) = \frac{2-2x}{1-2x+x^2} = \frac{2(1-x)}{(1-x)^2} = \frac{2}{1-x} = 2\sum_{n=0}^{\infty}x^n\]
+Z tego wychodzi $a_n=2$.\newline
+
+\textbf{Rozwiązanie podpunktu (iii)}
+Zapiszmy sobie wzór na $a_{n+2}$ jako $a_{n+2} - a_{n+1} -a_n=1$. Niech $A(x) = \sum_{n=0}^{\infty}a_nx^n$, a $P(X) = 1-x-x^2$.
+\[A(x)P(x) = a_0  + (a_1-a_0)x + (a_2-a_1-a_0)x^2+... = x+x^2+x^3+...=\frac{x}{1-x}\]
+\[A(x) = \frac{x}{(1-x)(1-x-x^2)} = \frac{1}{1-x}\cdot\frac{x}{1-x-x^2}\]
+Można zauważyć, że we wzorze na $A(X)$ występuję wzór na funkcję tworzącą Fibonacciego, więc liczenie tego będzie skomplikowane. Mam nadzieję, że dotarcie do tego miejsca starczy na rozwiązanie.
     %rozwiązanie: Mateusz Rabantek
     \textbf{Rozwiązanie podpunktu (iv)}
 
@@ -3080,7 +3139,7 @@ Sytuacja taka sama jak w 7 zestawie.
 \end{mdframed}
 
 
-\begin{zad}[Karol Wójcik, Autor 2]
+\begin{zad}[Karol Wójcik, Natalia Szymańska]
     Udowodnij, że dowolne drzewo $T$ ma przynajmniej $\Delta(T)$ liści.
 \end{zad}
 \begin{mdframed}
@@ -3104,7 +3163,13 @@ Sytuacja taka sama jak w 7 zestawie.
     \]
 \end{mdframed}
 \begin{mdframed}
-    Rozwiązanie Autora 2.
+    Niech $l$ to liczba liści w drzewie $T$, $n = |V(T)|$.
+Z HSL wiemy, że $\sum deg(v) = 2|E(T)| = 2(n-1))$. Wiemy też, że tą sumę możemy przedstawić jako $\Delta(T) + l \cdot deg(v | v to liść) + reszta$. Stopień liści jest równy oraz  reszta musi być większa niż $2n - 2l -2\cdot 1$.
+Z tego wynika, że:
+\[2n - 2\geq l + 2n-2l-2 +\Delta(T)\]
+\[0\geq -l+\Delta(T)\]
+\[l \geq \Delta(T)\]
+Co kończy dowód.
 \end{mdframed}
 
 \begin{zad}
